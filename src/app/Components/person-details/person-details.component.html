@@ -1,0 +1,54 @@
+<div class="container">
+  <app-person-form></app-person-form>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Language Skill</th>
+      <th>Resume</th>
+      <th>Date of Birth</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of personService.listPerson">
+      <td>{{ item.personId }}</td>
+      <td>{{ item.personName }}</td>
+      <td>{{ item.country }}</td>
+      <td>{{ item.city }}</td>
+      <td>
+        <span *ngIf="item.cSharpSkill">C#</span>
+        <span *ngIf="item.cPlusPlusSkill">,C++</span>
+        <span *ngIf="item.javaSkill">,Java</span>
+        <span *ngIf="item.phpSkill">,PHP</span>
+        <span *ngIf="item.sqlSkill">,SQL</span>
+      </td>
+      <td>Resume</td>
+      <td>{{ item.doB | date: "dd MMM yyyy" }}</td>
+      <td>
+        <a href=""
+          ><img
+            class="btn btn-info light"
+            src="assets/img/eye-fill.svg"
+            alt="Show"
+        /></a>
+        <a href="#" (click)="editPerson(item)"
+          ><img
+            class="btn btn-primary"
+            src="assets/img/pencil-fill.svg"
+            alt="Edit"
+        /></a>
+        <a href="" (click)="deletePerson(item.personId)"
+          ><img
+            class="btn btn-danger"
+            src="assets/img/file-x-fill.svg"
+            alt="Remove"
+        /></a>
+      </td>
+    </tr>
+  </tbody>
+</table>

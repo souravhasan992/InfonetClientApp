@@ -1,0 +1,54 @@
+<!-- <input #chackbox1 type="checkbox" name="toggle" id="toggle" />
+<label for="toggle"></label>
+<div class="container"></div> -->
+<!-- formAdd -->
+<div class="container">
+  <form #personForm="ngForm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name *</label>
+      <input type="name" class="form-control" id="name" />
+      <div>
+        <label for="country">Country</label>
+        <div>
+          <select
+            [(ngModel)]="selectedCountry.id"
+            (change)="onCountrySelect($event.target)"
+          >
+            <option value="0">Country *</option>
+            <option *ngFor="let country of countries" [value]="country.id">
+              {{ country.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="state">States</label>
+        <div>
+          <select
+            [(ngModel)]="selectedState.id"
+            (change)="onStateSelect($event.target)"
+          >
+            <option value="0">State *</option>
+            <option *ngFor="let state of states" [value]="state.id">
+              {{ state.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="city">Cities *</label>
+        <div>
+          <select
+            [(ngModel)]="selectedCity.id"
+            (change)="onCitySelect($event.target)"
+          >
+            <option value="0">City</option>
+            <option *ngFor="let city of cities" [value]="city.id">
+              {{ city.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
